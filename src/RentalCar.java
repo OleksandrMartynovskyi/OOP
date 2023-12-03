@@ -1,4 +1,4 @@
-public class RentalCar extends Car {
+public abstract class RentalCar extends Car {
     private double rentalRate;
 
     public RentalCar(String make, String model, int year, String colour, double price, double rentalRate) {

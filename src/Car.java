@@ -1,17 +1,14 @@
-public class Car  {
-    private String make;
-    private String model;
-    private String colour;
-    private int year;
-    private double price;
-
+public abstract class Car {
+    private static String make;
+    private static String model;
+    private static String colour;
+    private static int year;
+    private static double price;
 
     public Car(String make, String model, int year, String colour, double price) {
-        this.make = make;
-        this.model = model;
-        this.year = year;
-        this.colour = colour;
-        this.price = price;
+    }
+
+    public Car() {
 
     }
 
@@ -21,7 +18,7 @@ public class Car  {
     }
 
     public void setMake(String make) {
-        this.make = make;
+        Car.make = make;
     }
 
     // Гетери та сетери для model
@@ -30,7 +27,7 @@ public class Car  {
     }
 
     public void setModel(String model) {
-        this.model = model;
+        Car.model = model;
     }
 
     // Гетери та сетери для year
@@ -39,7 +36,7 @@ public class Car  {
     }
 
     public void setYear(int year) {
-        this.year = year;
+        Car.year = year;
     }
 
     // Гетери та сетери для color
@@ -48,7 +45,7 @@ public class Car  {
     }
 
     public void setColour(String colour) {
-        this.colour = colour;
+        Car.colour = colour;
     }
 
     // Гетери та сетери для price
@@ -57,7 +54,7 @@ public class Car  {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        Car.price = price;
     }
 
     public void start() {
@@ -70,5 +67,21 @@ public class Car  {
 
     public void openRoof() {
         System.out.println("Carroof is opened");
+    }
+
+    public abstract SportsCar build();
+
+    public abstract static class CarBuilder<T extends CarBuilder<T>> {
+
+        public abstract Car build();
+
+        protected abstract T self();
+
+    }
+    public interface Movable {
+        void move();
+    }
+    public interface Equipped {
+        void activateAdditionalEquipment();
     }
 }

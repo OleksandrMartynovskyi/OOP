@@ -1,4 +1,4 @@
-public class Truck extends Car {
+public abstract class Truck extends Car {
     private double cargoCapacity;
 
     public Truck(String make, String model, int year, String colour, double price, double cargoCapacity) {
